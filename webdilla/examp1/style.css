@@ -1,38 +1,38 @@
 
 
 .title{
-    width: 275px;
+    width: 600px;
     height: 50px;
     color: #000;
 font-family: Inter;
-font-size: 50px;
+font-size: 70px;
 font-style: normal;
 font-weight: 800;
 line-height: 115%; /* 43.7px */
 letter-spacing: -0.722px;
  margin-top: 700px;
-margin-left: 800px;   
+margin-left: 650px;   
 
 }
 .content{
-    width: 350px;
-    height: 400px;
+    width: 600px;
+    height: 700px;
     color: rgba(0, 0, 0, 0.80);
     font-family: Inter;
-    font-size: 30px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 171.429% */
+    line-height: 35px; /* 171.429% */
     letter-spacing: -0.084px;
     margin-top: 140px;
-    margin-left: 800px;
+    margin-left: 650px;
 
 }
  img{
     position: absolute;
-    top:10px;
-    left: 300px;
-    width: 400px;
+    top:11px;
+    left: 100px;
+    width: 500px;
     height: 600px;
  }
 
