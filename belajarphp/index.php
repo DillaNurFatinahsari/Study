@@ -1,9 +1,31 @@
+...............Function...............<br/>
+
 <?php
-//Penjumlahan
-$angka1=30;
-$angka2=15;
+function tampil_nama() {
+    echo " Halloo !!";
+}
 
-$hasil=$angka1 + $angka2;
-
-echo $hasil;
+tampil_nama();
 ?>
+
+<br>............Perintah break dalam perulangan.............<br/>
+<?php
+for ($i = 0; $i < 100; $i++) {
+  if ($i == 13) {
+    break;
+  }
+  echo $i;
+  echo "<br>";
+}
+?>
+<br>.............Percabangan...............<br/>
+<?php
+$siswa = array("Vita", "Budi", "Tomi");
+$arrlength = count($siswa);
+for($x = 0; $x < $arrlength; $x++) {
+  echo $siswa[$x];
+  echo "<br>";
+}
+?>
+
+
