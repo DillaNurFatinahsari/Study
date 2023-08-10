@@ -10,8 +10,7 @@ class Inher{
 	}
 	
 }
- 
-// class turunan atau sub class dari class manusia
+// class turunan 
 // menghubungkan class dengan syntax extends
 class teman extends Inher{
  
