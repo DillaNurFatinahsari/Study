@@ -26,7 +26,7 @@ class teman extends Inher{
 // instansiasi 
 $Inher = new teman;
  
-$Inher->berinama(" Bellaa");
+$Inher->berinama(" Naura");
 $Inher->berinamateman(" Dilla ");
  
 // menampilkan isi property
