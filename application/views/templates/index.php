@@ -8,9 +8,10 @@
                 <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
                     Tambah Data
                 </button>
+
         </div>
         <div class="card-body">
-            <?php echo $this->session->flashdata('pesan'); ?>
+            <?php echo $this->session->flashdata('suc'); ?>
             <div class="table-responsive">
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                     <thead>

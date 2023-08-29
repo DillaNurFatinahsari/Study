@@ -29,14 +29,14 @@ class Home extends CI_Controller
     {
         $this->mahasiswa1->proses_tambah_data();
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah!</div>');
-        redirect('Home');
+        redirect('Auth/Home');
     }
 
     public function hapus_data($id)
     {
         $this->mahasiswa1->hapus_data($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
-        redirect('Home');
+        redirect('Auth/Home');
     }
 
     public function edit_data($id)
@@ -52,6 +52,6 @@ class Home extends CI_Controller
     {
         $this->mahasiswa1->proses_edit_data();
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
-        redirect('Home');
+        redirect('Auth/Home');
     }
 }

@@ -12,7 +12,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
-        Administrator
+        Admin
     </div>
 
     <!-- Nav Item - Dashboard -->
@@ -36,6 +36,16 @@
             <i class="fas fa-fw fa-table"></i>
             <span>Tambah Data</span></a>
     </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('Auth/logout'); ?>">
+            <i class="fas fa-fw fa-sign-out-alt"></i>
+            <span>Logout</span></a>
+    </li>
+
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
