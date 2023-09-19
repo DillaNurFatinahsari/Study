@@ -84,6 +84,8 @@
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
@@ -116,6 +118,33 @@
             tableData.DataTable().ajax.reload();
         }
 
+        function message(icon, text) {
+            Swal.fire({
+                icon: icon,
+                title: 'Data Table Serverside',
+                text: text,
+                showConfirmButton: false,
+                showCloseButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+        }
+
+        function deleteQuestion(id, name) {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Akan menghapus data " + name + "?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    deleteData(id);
+                }
+            })
+        }
+
         function add() {
             saveData = 'tambah';
             formData[0].reset();
@@ -142,15 +171,23 @@
                     if (response.status == 'success') {
                         modal.modal('hide');
                         reloadTable();
+                        if (saveData == 'tambah') {
+                            message('success', 'Data Berhasil di tambah');
+                        } else {
+                            message('success', 'Data Berhasil di tambah');
+                        }
+
                     } else {
                         for (var i = 0; i < response.inputerror.length; i++) {
                             $('[name="' + response.inputerror[i] + '"]').addClass('is-invalid');
                             $('[name="' + response.inputerror[i] + '"]').next().text(response.error_string[i]);
                         }
                     }
+                    btnSave.text('Simpan data');
+                    btnSave.attr('disabled', false);
                 },
                 error: function() {
-                    console.log('error database');
+                    message('error', 'Server gangguan, silahkan ulangi kembali');
                 }
             });
         }
@@ -168,6 +205,7 @@
                 success: function(response) {
 
                     if (type == 'edit') {
+                        formData.find('input').removeClass('is-invalid');
                         modalTitle.text('Ubah Data');
                         btnSave.text('Ubah Data');
                         btnSave.attr('disabled', false);
@@ -178,12 +216,12 @@
                         $('[name="mobilePhoneNumber"]').val(response.no_hp);
                         modal.modal('show');
                     } else {
-                        var result = confirm('apakah anda yakin untuk menghapus data??' + response.nama_depan);
-                        if (result) { // jika diklik OK
-                            deleteData(response.id);
-                        }
+                        deleteQuestion(response.id, response.nama_depan);
                     }
 
+                },
+                error: function() {
+                    message('error', 'Server gangguan, silahkan ulangi kembali');
                 }
             });
         }
@@ -195,7 +233,11 @@
                 dataType: "JSON",
                 success: function(response) {
                     reloadTable();
+                    message('success', 'Data Berhasil di hapus');
 
+                },
+                error: function() {
+                    message('error', 'Server gangguan, silahkan ulangi kembali');
                 }
             });
         }

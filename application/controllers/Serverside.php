@@ -72,6 +72,7 @@ class Serverside extends CI_Controller
 
     public function update()
     {
+        $this->_validation();
         $data = [
             'nama_depan' => htmlspecialchars($this->input->post('firstName')),
             'nama_belakang' => htmlspecialchars($this->input->post('lastName')),
@@ -79,7 +80,7 @@ class Serverside extends CI_Controller
             'no_hp' => htmlspecialchars($this->input->post('mobilePhoneNumber'))
         ];
 
-        if ($this->Serverside_model->update(array('id' => $this->input->post('id')), $data) > 0) {
+        if ($this->Serverside_model->update(array('id' => $this->input->post('id')), $data) >= 0) {
             $message['status'] = 'success';
         } else {
             $message['status'] = 'failed';
@@ -107,28 +108,23 @@ class Serverside extends CI_Controller
         $data['status'] = true;
 
         if ($this->input->post('firstName') == '') {
-            $data['inputerror'] = 'firstName';
-            $data['error_string'] = 'Nama Depan Wajib diisi';
+            $data['inputerror'][] = 'firstName';
+            $data['error_string'][] = 'Nama Depan Wajib diisi';
             $data['status'] = false;
         }
         if ($this->input->post('lastName') == '') {
-            $data['inputerror'] = 'lastName';
-            $data['error_string'] = 'Nama Belakang Wajib diisi';
+            $data['inputerror'][] = 'lastName';
+            $data['error_string'][] = 'Nama Belakang Wajib diisi';
             $data['status'] = false;
         }
         if ($this->input->post('address') == '') {
-            $data['inputerror'] = 'address';
-            $data['error_string'] = 'Alamat Wajib diisi';
+            $data['inputerror'][] = 'address';
+            $data['error_string'][] = 'Alamat Wajib diisi';
             $data['status'] = false;
         }
         if ($this->input->post('mobilePhoneNumber') == '') {
-            $data['inputerror'] = 'mobilePhoneNumber';
-            $data['error_string'] = 'Nama Depan Wajib diisi';
-            $data['status'] = false;
-        }
-        if ($this->input->post('firstName') == '') {
-            $data['inputerror'] = 'firstName';
-            $data['error_string'] = 'No Hp Wajib diisi';
+            $data['inputerror'][] = 'mobilePhoneNumber';
+            $data['error_string'][] = 'No Hp Wajib diisi';
             $data['status'] = false;
         }
 
