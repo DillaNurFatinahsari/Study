@@ -153,7 +153,7 @@
         }
 
         function save() {
-            btnSave.text('Mohon tunggu....');
+            btnSave.text('Mohon tunggu...');
             btnSave.attr('disabled', true);
             if (saveData == 'tambah') {
                 url = "<?= base_url('serverside/add'); ?>"
