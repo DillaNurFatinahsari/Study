@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Side Codeigniter 3</title>
+    <title>DataTable</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
 </head>
 
 <body>
     <div class="container mt-3">
-        <h3>Data Table Codeigniter Serverside</h3>
+        <h3>Ajax Data Table</h3>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary mb-3" onClick="add()">
             Tambah data
@@ -174,7 +174,7 @@
                         if (saveData == 'tambah') {
                             message('success', 'Data Berhasil di tambah');
                         } else {
-                            message('success', 'Data Berhasil di tambah');
+                            message('success', 'Data Berhasil di ubah');
                         }
 
                     } else {
